@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Web App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+
+</head>
+
+<body>
+    <nav>
+        <nav class="navbar navbar-expand-lg rounded-8 custom-nav">
+            <div class="nav-div">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link black-link" href="/about">About<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link black-link" href="/">Home <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+                <div class="nav-logo">
+                    <img src="https://cdn0.iconfinder.com/data/icons/minimalist-purple-blue-filled-line-for-mobile-ap-1/64/Minimalist_Purple_Blue_Flat_Line_Icons_for_Mobile_App_and_Business_23-512.png"
+                        alt="image" class="resize">
+                    <a class="navbar-brand" href="/">Spare Parts</a>
+                </div>
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <li class="nav-item active ml-auto">
+                        <a class="nav-link black-link" href="/register">Register <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active ml-auto">
+                        <a class="nav-link black-link" href="/register">Generate <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+    <form id="myForm">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                placeholder="Password">
+        </div>
+        <button onclick="submitForm()" name="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+    <script>
+        function submitForm() {
+
+            var form = document.getElementById("myForm");
+            var data = new FormData(form);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/submit", true);
+
+            var form = document.getElementById("myForm");
+            function handleForm(event) {
+                event.preventDefault();
+            }
+            form.addEventListener('submit', handleForm);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var successBox = document.createElement("div");
+                    successBox.innerHTML = "Submission successful!";
+                    successBox.classList.add("success-box");
+                    document.body.appendChild(successBox);
+                    var form = document.getElementById("myForm");
+                    form.style.display = "none";
+                    var formData = new FormData(document.getElementById("myForm"));
+                    var data = "";
+
+                    for (var [key, value] of formData.entries()) {
+                        data += key + ": " + value + "\n";
+                    }
+
+                    alert(data);
+                } else if (xhr.readyState === 4) {
+                    var errorBox = document.createElement("div");
+                    errorBox.innerHTML = "Error submitting form";
+                    errorBox.classList.add("error-box");
+                    document.body.appendChild(errorBox);
+                }
+            };
+            xhr.send(data);
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

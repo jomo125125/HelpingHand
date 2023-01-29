@@ -1,0 +1,203 @@
+body {
+    background-color: #276f357e
+}
+
+.resize {
+    width: 7%;
+}
+
+.nav-div {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: left;
+    justify-content: cente;
+    margin-left: 80px;
+    width: 15%;
+}
+
+.nav-item {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgba(68, 19, 118, 255);
+    margin-left: -15px;
+
+    /* rgba(68, 19, 118, 255); */
+}
+
+.custom-nav {
+    margin: 20px;
+    padding-right: 50px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 3px 3px 10px gray;
+}
+
+.success-box {
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 40%;
+    height: 150px;
+    margin-left: 30%;
+    margin-top: 100px;
+    background-color: rgb(59, 160, 59);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 3px 3px 10px white;
+}
+
+a {
+    color: black;
+}
+
+ul {
+    text-align: left;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    width: 40%;
+}
+
+.form-check {
+    text-align: left;
+    display: inline;
+}
+
+#search-container {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* semi-transparent white background */
+    border-radius: 10px;
+    /* rounded corners */
+    padding: 20px;
+    /* space inside the container */
+    width: 30%;
+    /* width of the container */
+    margin: 0 auto;
+    /* center the container on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-container input[type="text"] {
+    padding: 10px;
+    /* space inside the text input */
+    border-radius: 5px;
+    /* rounded corners for the text input */
+    border: none;
+    /* remove the border */
+}
+
+#search-container select {
+    padding: 10px;
+    /* space inside the select input */
+    border-radius: 5px;
+    /* rounded corners for the select input */
+    border: none;
+    /* remove the border */
+}
+
+#search-container input[type="submit"] {
+    background-color: #6ab06a;
+    /* background color for the submit button */
+    color: white;
+    /* text color for the submit button */
+    padding: 10px 20px;
+    /* space inside and around the submit button */
+    border-radius: 5px;
+    /* rounded corners for the submit button */
+    border: none;
+    /* remove the border */
+    cursor: pointer;
+    /* change cursor to pointer on hover */
+}
+
+.dropdown {
+    position: relative;
+    width: 300px;
+    height: 30px;
+    border: 1px solid gray;
+}
+
+.dropdown input {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.dropdown ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: white;
+    border: 1px solid gray;
+    display: none;
+}
+
+.dropdown.shrink {
+    height: 70px;
+    transition: height 0.5s;
+}
+
+/* Add styles for the transparent background */
+.window {
+    background-color: rgba(255, 255, 255, 0.7);
+    /* White color with 70% opacity */
+    text-align: left;
+    /* Align text to the left */
+    padding: 30px;
+    /* Add some padding */
+    width: 50%;
+    /* Set the width to 50% of the screen */
+    position: absolute;
+    /* Position the window relative to the screen */
+    left: 0;
+    /* Align the window to the left of the screen */
+    top: 50%;
+    /* Position the window vertically in the center of the screen */
+    transform: translateY(-50%);
+    /* Center the window horizontally */
+}
+
+/* Add styles for the image */
+img {
+    width: 50%;
+    height: auto;
+    top: 50%;
+}

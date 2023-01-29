@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Generate Text</title>
+    <title>My Web App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <nav>
+        <nav class="navbar navbar-expand-lg rounded-8 custom-nav">
+            <div class="nav-div">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link black-link" href="/about">About<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link black-link" href="/">Home <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+                <div class="nav-logo">
+                    <img src="https://cdn0.iconfinder.com/data/icons/minimalist-purple-blue-filled-line-for-mobile-ap-1/64/Minimalist_Purple_Blue_Flat_Line_Icons_for_Mobile_App_and_Business_23-512.png"
+                        alt="image" class="resize">
+                    <a class="navbar-brand" href="/">Spare Parts</a>
+                </div>
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <li class="nav-item active ml-auto">
+                        <a class="nav-link black-link" href="/register">Register <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+    <form method="post" action="{{ url }}">
+        <label for="prompt">Enter your prompt:</label>
+        <textarea name="prompt" id="prompt"></textarea>
+        <input type="submit" value="Generate">
+    </form>
+    <div id="result"></div>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
+            const result = document.querySelector('#result');
+            result.innerHTML = 'Loading...';
+            const prompt = document.querySelector('#prompt').value;
+            const response = await fetch('{{ url }}', {
+                method: 'POST',
+                body: JSON.stringify({ prompt }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            result.innerHTML = data.message;
+        });
+    </script>
+</body>
+
+</html>
